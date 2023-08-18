@@ -1,0 +1,43 @@
+# Node.js / npm
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE/Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+jspm_packages/
+typings/
+
+# Testing
+coverage/
+
+# Environment variables
+.env
+
+# Build output
+dist/
+build/
+out/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# Cache and npm cache
+.cache/
+.npm/
+.npmrc
+
+# Yarn
+.yarn/
+
+# Local npm modules
+node_modules/
