@@ -62,21 +62,26 @@ const authController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-
+  
       const query = 'SELECT * FROM users WHERE email = ?';
       const [rows] = await connection.promise().execute(query, [email]);
-
+  
       if (rows.length === 0) {
         return res.status(401).json({ message: 'Credenciales inválidas.' });
       }
-
+  
       const user = rows[0];
       const passwordMatch = await bcrypt.compare(password, user.password);
-
+  
       if (!passwordMatch) {
         return res.status(401).json({ message: 'Credenciales inválidas.' });
       }
-
+  
+      // Verificar si el correo electrónico está validado
+      if (user.is_email_verified !== 1) {
+        return res.status(401).json({ message: 'El correo electrónico no ha sido verificado.' });
+      }
+  
       const token = jwt.sign({ email: user.email }, secretKey, { expiresIn: '1h' });
       res.status(200).json({ token });
     } catch (error) {
@@ -84,6 +89,7 @@ const authController = {
       res.status(500).json({ message: 'Error en el servidor.' });
     }
   },
+  
 
   verifyEmail: async (req, res) => {
     try {
