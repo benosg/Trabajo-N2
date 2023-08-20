@@ -1,14 +1,16 @@
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const connection = require('../db');
 const dotenv = require('dotenv');
+const { validationResult } = require('express-validator');
 dotenv.config(); // Carga las variables de entorno desde .env
 const secretKey = process.env.SECRET_KEY;
 const mailer = process.env.EMAIL;
 const mailerPassword = process.env.EMAILPASSWORD;
 const sitioWeb = process.env.SITIO;
+
 // Define el método para generar el token de verificación
 const generateVerificationToken = (email) => {
   const verificationToken = jwt.sign({ email }, secretKey, { expiresIn: '1h' });
@@ -17,6 +19,13 @@ const generateVerificationToken = (email) => {
 const authController = {
   register: async (req, res) => {
     try {
+
+       // Validación y sanitización de datos de entrada
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+
       const { email, password } = req.body;
 
       // Hash de la contraseña
