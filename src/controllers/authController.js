@@ -3,11 +3,17 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const connection = require('../db');
-
-const SECRET_KEY = 'tu_clave_secreta';
-const MAILER_EMAIL = 'tu_correo@gmail.com';
-const MAILER_PASSWORD = 'tu_contraseña_de_correo';
-
+const dotenv = require('dotenv');
+dotenv.config(); // Carga las variables de entorno desde .env
+const secretKey = process.env.SECRET_KEY;
+const mailer = process.env.EMAIL;
+const mailerPassword = process.env.EMAILPASSWORD;
+const sitioWeb = process.env.SITIO;
+// Define el método para generar el token de verificación
+const generateVerificationToken = (email) => {
+  const verificationToken = jwt.sign({ email }, secretKey, { expiresIn: '1h' });
+  return verificationToken;
+};
 const authController = {
   register: async (req, res) => {
     try {
@@ -24,16 +30,18 @@ const authController = {
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: MAILER_EMAIL,
-          pass: MAILER_PASSWORD,
+          user: mailer,
+          pass: mailerPassword,
         },
       });
-
+      const verificationToken = generateVerificationToken(email);
+// Crear el enlace de verificación
+      const verificationLink = `${sitioWeb}/auth/verify-email/${verificationToken}`;
       const mailOptions = {
-        from: MAILER_EMAIL,
+        from: mailer,
         to: email,
         subject: 'Verificación de correo electrónico',
-        text: 'Por favor, haga clic en el enlace para verificar su correo.',
+        text: `Por favor, haga clic en el enlace para verificar su correo: ${verificationLink}`,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
@@ -69,7 +77,7 @@ const authController = {
         return res.status(401).json({ message: 'Credenciales inválidas.' });
       }
 
-      const token = jwt.sign({ email: user.email }, SECRET_KEY, { expiresIn: '1h' });
+      const token = jwt.sign({ email: user.email }, secretKey, { expiresIn: '1h' });
       res.status(200).json({ token });
     } catch (error) {
       console.error(error);
@@ -80,7 +88,7 @@ const authController = {
   verifyEmail: async (req, res) => {
     try {
       const token = req.params.token;
-      const decodedToken = jwt.verify(token, SECRET_KEY);
+      const decodedToken = jwt.verify(token, secretKey);
 
       const email = decodedToken.email;
 

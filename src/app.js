@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
-
+// Definir la ruta para la verificación de correo electrónico
 app.listen(3000, () => {
   console.log('Servidor iniciado en el puerto 3000.');
 });
