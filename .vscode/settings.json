@@ -14,5 +14,9 @@
             "username": "userT2",
             "askForPassword": true
         }
-    ]
+    ],
+    "sonarlint.connectedMode.project": {
+        "connectionId": "NodeJs",
+        "projectKey": "Trabajo2"
+    }
 }

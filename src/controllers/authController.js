@@ -80,7 +80,7 @@ const authController = {
       }
   
       const user = rows[0];
-      const passwordMatch = await bcrypt.compare(password, user.password);
+       const passwordMatch = await bcrypt.compare(password, user.password);
   
       if (!passwordMatch) {
         return res.status(401).json({ message: 'Credenciales inválidas.' });

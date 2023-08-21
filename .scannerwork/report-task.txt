@@ -1,0 +1,6 @@
+projectKey=Trabajo2
+serverUrl=http://192.168.1.100:9000
+serverVersion=10.1.0.73491
+dashboardUrl=http://192.168.1.100:9000/dashboard?id=Trabajo2
+ceTaskId=AYoVWCnrmBAd7CVDCEiW
+ceTaskUrl=http://192.168.1.100:9000/api/ce/task?id=AYoVWCnrmBAd7CVDCEiW
