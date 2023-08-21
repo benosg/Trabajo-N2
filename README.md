@@ -1,9 +1,17 @@
+##Trabajo Diplamado Desarrollo Seguro
+#Universidad Catolica
+
+#Front End
+##Carteristicas
+
+- Desarrollado en Angular
+
 # API de Autenticación Segura
 
 Esta API proporciona funcionalidad de registro y inicio de sesión con un enfoque en la seguridad y las mejores prácticas de desarrollo seguro.
 
 ## Características
-
+- Desarrollado en Node.js
 - Registro de usuarios con verificación de correo electrónico.
 - Inicio de sesión con autenticación segura.
 - Contraseñas almacenadas de manera segura utilizando hashing bcrypt.
