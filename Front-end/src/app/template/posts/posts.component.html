@@ -1,0 +1,56 @@
+<section class="container mt-5" id="arriba">
+    <ng-container>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Noticias</li>
+            </ol>
+        </nav>
+        <h1 class="mb-5">Noticias</h1>
+        <section class="row" *ngIf="data.posts">
+            <ng-container *ngFor="let post of data.posts; let i = index">
+            <div class="card col-lg-3 col-md-4 mb-4">
+                <img [routerLink]="['../post', post.title]" class="card-img-top cursor-pointer" src={{post.urlToImage}} alt="Card image cap" *ngIf="post.urlToImage">
+                <div class="card-body d-flex flex-column p-4">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <small class="card-text mb-3">{{post.publishedAt}}</small>
+                    <p class="card-text">{{post.body}}</p>
+                    <a [routerLink]="['../post', post.title]" class=" mt-auto text-end d-flex align-items-center justify-content-end">
+                    <span>Ver más </span>
+                    <span class="material-symbols-outlined">keyboard_arrow_right</span>
+                    </a>
+                </div>
+            </div>
+            </ng-container>
+    
+            <ng-container>
+            <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                <ul class="pagination">
+                <li class="page-item">
+                    <a (click)="Post(prevPage)" class="page-link cursor-pointer" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item" *ngFor="let num of paginacion">
+                    <a (click)="Post(num)" class="page-link {{ (num == npage) ? 'active' : '' }} cursor-pointer">{{num}}</a>
+                </li>
+    
+                <li class="page-item">
+                    <a (click)="Post(nextPage)" class="page-link cursor-pointer" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                </ul>
+            </nav>
+            </ng-container>
+        </section>
+        <section *ngIf="!data.posts">
+            <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Disculpa!</h4>
+            <p>No hemos podido desplegar nuestros contenidos</p>
+            <hr>
+            <p class="mb-0">Puede contactarse con nosotros a <a href="contacto@webaipp.cl">contacto@webaipp.cl</a>.</p>
+            </div>
+        </section>
+    </ng-container>
+  </section>

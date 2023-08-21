@@ -1,0 +1,55 @@
+<section class="container mt-5">
+  <ng-container>
+    <section class="row" *ngIf="data.posts">
+      <ng-container *ngFor="let post of data.posts; let i = index">
+        <div class="card col-12 d-flex flex-row mb-5" *ngIf="i==0">
+          <img [routerLink]="['post', post.title]" class="card-img-top w-50 cursor-pointer" src={{post.urlToImage}} alt="Card image cap" *ngIf="post.urlToImage">
+
+          <div class="card-body d-flex flex-column m-5">
+            <h4> <span class="badge bg-secondary">{{post.source.name}}</span></h4>
+            <h2 [routerLink]="['post', post.title]" class="card-title cursor-pointer">{{post.title}}</h2>
+            <small class="card-text"><strong>Por: {{post.author}}</strong></small>
+              <small class="card-text mb-5">{{post.publishedAt}}</small>
+            <p class="card-text">{{post.description}}</p>
+            <a [routerLink]="['post', post.title]" class=" mt-auto text-end d-flex align-items-center justify-content-end">
+              <span>Ver más </span>
+              <span class="material-symbols-outlined">keyboard_arrow_right</span>
+            </a>
+          </div>
+        </div>
+
+        <h1 class="mt-5 mb-5" *ngIf="i==0">Noticias Destacadas</h1>
+        <div *ngIf="i!=0" class="card col-lg-3 col-md-4 mb-4">
+            <img [routerLink]="['post', post.title]" class="card-img-top cursor-pointer" src={{post.urlToImage}} alt="Card image cap" *ngIf="post.urlToImage">
+            <div class="card-body d-flex flex-column p-4">
+              <h5 class="card-title">{{post.title}}</h5>
+              <small class="card-text"><strong>Por: {{post.author}}</strong></small>
+              <small class="card-text mb-5">{{post.publishedAt}}</small>
+              <a [routerLink]="['post', post.title]" class=" mt-auto text-end d-flex align-items-center justify-content-end">
+                <span>Ver más </span>
+                <span class="material-symbols-outlined">keyboard_arrow_right</span>
+              </a>
+            </div>
+        </div>
+      </ng-container>
+    </section>
+    <section *ngIf="!data.posts">
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Disculpa!</h4>
+        <p>No hemos podido desplegar nuestros contenidos</p>
+        <hr>
+        <p class="mb-0">Puede contactarse con nosotros a <a href="contacto@webaipp.cl">contacto@webaipp.cl</a>.</p>
+      </div>
+    </section>
+  </ng-container>
+
+  <section class="mt-5">
+    <div class="card text-center p-5">
+      <div class="card-body">
+        <h1 class="card-title">Suscríbete a nuestro Newsletter</h1>
+        <p class="card-text">Comprueba los beneficios de estar suscrito a nuestros boletines mensuales.</p>
+        <a href="#" class="btn btn-primary">Ir a suscribir</a>
+      </div>
+    </div>
+  </section>
+</section>

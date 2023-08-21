@@ -1,0 +1,33 @@
+<section class="container mt-5">
+  <section class="row" *ngIf="data.posts">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+              <li class="breadcrumb-item"><a [routerLink]="['../../posts']" href="#">Noticias</a></li>
+              <li class="breadcrumb-item active" aria-current="page">{{data.posts.title}}</li>
+            </ol>
+        </nav>
+        <h4 class="mt-5"><span class="badge bg-secondary">{{data.posts.source.name}} </span></h4>
+        <h1>{{data.posts.title}}</h1>
+        
+        <div class="col-lg-9" >
+            <div class="d-flex pt-5">
+                <img class="w-50 me-5" src={{data.posts.urlToImage}} alt="Card image cap" *ngIf="data.posts.urlToImage">
+                <div>
+                    <small class="me-2">{{data.posts.publishedAt}}</small>
+                    <strong class="">Por: {{data.posts.author}}</strong>
+                    <h4 class="mt-5">{{data.posts.description}}</h4>
+                    <p class="mt-5">{{data.posts.content}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section *ngIf="!data.posts">
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading">Disculpa!</h4>
+          <p>No hemos podido desplegar nuestros contenidos</p>
+          <hr>
+          <p class="mb-0">Puede contactarse con nosotros a <a href="contacto@webaipp.cl">contacto@webaipp.cl</a>.</p>
+        </div>
+  </section>
+</section>

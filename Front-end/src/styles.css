@@ -1,0 +1,47 @@
+html{
+    font-size: 100%;
+}
+p{
+    font-size: 1.3em !important;
+}
+/* h2{
+    font-size: 3em !important;
+}
+h3{
+    font-size: 3em !important;
+} */
+h5{
+    font-size: 1.3em !important;
+}
+.bg-primary{
+    background-color: #759921 !important;
+}
+
+a{
+    font-size: 1.3em !important;
+    text-decoration: none !important;
+    color: #759921 !important;
+}
+a:hover{
+    color: #8b8625 !important;
+}
+a.active{
+    border: #8b8625 solid 1px !important;
+    background: #ffffff !important;
+}
+.btn-primary{
+    background: #759921 !important;
+    color: white !important;
+    border: #8b8625 solid 1px !important;
+}
+.btn-primary:hover{
+    background: #8b8625 !important;
+    color: white !important;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.breadcrumb-item.active{
+    font-size: 1.3em;
+    color: #999999 !important;
+}
