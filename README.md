@@ -6,12 +6,11 @@ Esta API proporciona funcionalidad de registro y inicio de sesión con un enfoqu
 
 - Registro de usuarios con verificación de correo electrónico.
 - Inicio de sesión con autenticación segura.
-- Verificación de correo electrónico antes de permitir el inicio de sesión.
 - Contraseñas almacenadas de manera segura utilizando hashing bcrypt.
 - Hashing seguro de contraseñas utilizando bcrypt.
 - Uso de tokens JWT para manejar la autenticación.
-- Verificación de correo electrónico antes del inicio de sesión.
 - Validación y sanitización de datos de entrada utilizando express-validator.
+- Pruebas unitarias 
   
 ## Requisitos
 
