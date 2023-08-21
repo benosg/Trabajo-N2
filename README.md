@@ -1,8 +1,8 @@
-##Trabajo Diplamado Desarrollo Seguro
-#Universidad Catolica
+# Trabajo Diplamado Desarrollo Seguro
+## Universidad Catolica
 
-#Front End
-##Carteristicas
+# Front End
+## Carteristicas
 
 - Desarrollado en Angular
 
