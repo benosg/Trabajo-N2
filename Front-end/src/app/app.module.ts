@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }           from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { HeaderComponent } from './navbar/header/header.component';
 import { PostSingleComponent } from './template/post-single/post-single.component';
 import { FooterComponent } from './navbar/footer/footer.component';
 import { PostsComponent } from './template/posts/posts.component';
+import { SuscripcionComponent } from './template/suscripcion/suscripcion.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { PostsComponent } from './template/posts/posts.component';
     HeaderComponent,
     PostSingleComponent,
     FooterComponent,
-    PostsComponent
+    PostsComponent,
+    SuscripcionComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

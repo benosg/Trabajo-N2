@@ -25,4 +25,20 @@ export class QueriesService {
       );
     });
   }
+
+  public queryPost(url, parameters){
+    return new Promise( (resolve, reject) => {
+      this.httpClient.post(url, parameters).pipe(
+        map( (res: Response) => res )
+      ).subscribe(
+        (data) => {
+          resolve(data);
+        },
+        (err) => {
+          console.log(err);
+          reject();
+        }
+      )
+    });
+  }
 }

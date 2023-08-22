@@ -1,0 +1,37 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form (ngSubmit)="submitSuscripcion(form, $event)" #form="ngForm">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Suscríbete a nuestro newsletter</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Su nombre (opcional)</label>
+                        <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="suscribirModel.nombre" maxlength="25" pattern="[ A-Za-z0-9_ñÑáéíóúÁÉÍÓÚ\s]{1,25}">
+                        <div class="form-text">Máximo 25 caracteres.</div>
+                        <div *ngIf="!name.valid && email.touched" class="alert alert-danger d-flex align-items-center" role="alert">
+                            <span class="material-symbols-outlined me-2">warning</span>
+                            <div>No cumple con el formato deseado.</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico *</label>
+                        <input type="email" required class="form-control" id="email" name="email" aria-describedby="emailHelp" #email="ngModel" [(ngModel)]="suscribirModel.email" pattern="\S+@\S+\.\S+">
+                        <div id="emailHelp" class="form-text">Nunca compartiremos tu correo electrónico con nadie.</div>
+                        <div *ngIf="!email.valid && email.touched" class="alert alert-danger d-flex align-items-center" role="alert">
+                            <span class="material-symbols-outlined me-2">warning</span>
+                            <div>Correo electrónico es requerido o no cumple con el formato deseado.</div>
+                        </div>
+                    </div>
+                                 
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Suscribir</button>
+            </div>
+        </form>
+    </div>
+</div>
