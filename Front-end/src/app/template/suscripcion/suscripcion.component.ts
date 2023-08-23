@@ -30,11 +30,14 @@ export class SuscripcionComponent implements OnInit {
       this.queriesService.queryPost(this.api_news_jsonserver, this.suscribirModel).then(
         (data) => {
           this.response_api_news.show = true;
-          this.response_api_news.text = 'Su suscripción ha sido enviado con éxito';
-          form.reset()
+          if(data){
+            this.response_api_news.text = 'Su suscripción ha sido enviado con éxito';
+            form.reset();
+          }else{
+            this.response_api_news.text = 'No fue posible guardar su información. Por favor, intente más tarde o comuníquese con nosotros';
+          }
         },
         (error) => {
-          console.log(error); console.log("error")
           this.response_api_news.show = true;
           this.response_api_news.text = 'Ha ocurrido un problema. Por favor, intente más tarde';
         }

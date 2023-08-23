@@ -10,10 +10,10 @@
         <h4 class="mt-5"><span class="badge bg-secondary">{{data.posts.source.name}} </span></h4>
         <h1>{{data.posts.title}}</h1>
         
-        <div class="col-lg-9" >
-            <div class="d-flex pt-5">
-                <img class="w-50 me-5" src={{data.posts.urlToImage}} alt="Card image cap" *ngIf="data.posts.urlToImage">
-                <div>
+        <div class="col-12" >
+            <div class="row pt-5">
+                <img class="col-lg-6" src={{data.posts.urlToImage}} alt="Card image cap" *ngIf="data.posts.urlToImage">
+                <div class="col-lg-6">
                     <small class="me-2">{{data.posts.publishedAt}}</small>
                     <strong class="">Por: {{data.posts.author}}</strong>
                     <h4 class="mt-5">{{data.posts.description}}</h4>
@@ -21,8 +21,9 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section *ngIf="!data.posts">
+  </section>
+  
+  <section *ngIf="!data.posts">
         <div class="alert alert-success" role="alert">
           <h4 class="alert-heading">Disculpa!</h4>
           <p>No hemos podido desplegar nuestros contenidos</p>

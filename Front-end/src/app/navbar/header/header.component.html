@@ -3,8 +3,9 @@
     <section class="container">
         <a class="navbar-brand text-white" href="#"><h2>Web Aipp</h2></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse m-3" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -16,14 +17,14 @@
             </ul>
         </div>
 
-        <button type="button" class="btn btn-primary d-flex align-items-center p-1 ps-3 pe-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary d-none d-md-flex align-items-center p-1 ps-3 pe-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <span class="material-symbols-outlined pe-3 display-6">news</span> 
             <h5>Suscríbete a nuestro newsletter</h5>
         </button>
     </section>
 </nav>
 
-<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <app-suscripcion></app-suscripcion>
 </div>
  
