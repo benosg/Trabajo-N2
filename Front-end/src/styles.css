@@ -4,12 +4,6 @@ html{
 p{
     font-size: 1.3em !important;
 }
-/* h2{
-    font-size: 3em !important;
-}
-h3{
-    font-size: 3em !important;
-} */
 h5{
     font-size: 1.3em !important;
 }
@@ -45,3 +39,12 @@ a.active{
     font-size: 1.3em;
     color: #999999 !important;
 }
+.img-size {
+
+    height: 250px;
+    
+    width: 250px;
+    
+    object-fit: cover;
+    
+    }

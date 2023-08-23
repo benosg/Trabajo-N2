@@ -34,7 +34,7 @@
                     </ng-container>
                     <ng-container *ngIf="response_api_news.show">
                         <div class="modal-body text-center">
-                            <p>{{response_api_news.text}}</p>
+                            <p [innerHTML]="response_api_news.text"></p>
                         </div>
                     </ng-container>
                 </section>

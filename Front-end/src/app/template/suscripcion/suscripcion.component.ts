@@ -31,7 +31,8 @@ export class SuscripcionComponent implements OnInit {
         (data) => {
           this.response_api_news.show = true;
           if(data){
-            this.response_api_news.text = 'Su suscripción ha sido enviado con éxito';
+            this.response_api_news.text = '<h5>¡Hemos recibido sus datos de manera exitosa!</h5><br>';
+            this.response_api_news.text = this.response_api_news.text + '<small>Muchas gracias por pertenecer a nuestro círculo de suscriptores. Recibirá un email de confirmación en su cuenta.</small>';
             form.reset();
           }else{
             this.response_api_news.text = 'No fue posible guardar su información. Por favor, intente más tarde o comuníquese con nosotros';
