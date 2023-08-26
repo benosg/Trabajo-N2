@@ -1,4 +1,4 @@
-//manejo de constantes
+
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
 dotenv.config(); // Carga las variables de entorno desde .env
