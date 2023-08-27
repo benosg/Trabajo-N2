@@ -12,7 +12,7 @@ import { Suscribir }         from '../../services/suscribir';
 export class SuscripcionComponent implements OnInit {
   
   private api_news_jsonserver : string  = global.api_news_jsonserver;
-  private suscribirModel                = new Suscribir("","");
+  protected suscribirModel    : any     = new Suscribir("","");
   public response_api_news    : any     = {
     'show': false,
     'text': ''

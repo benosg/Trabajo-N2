@@ -1,7 +1,8 @@
+import { EmailValidator } from '@angular/forms';
 
 export class Suscribir {
     constructor(
         public nombre   : string,
-        public email    : string
+        protected email : string
     ){}
 };

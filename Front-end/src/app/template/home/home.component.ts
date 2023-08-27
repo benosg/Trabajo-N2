@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   Post(){
-    this.queriesService.queryGet(this.apiPost + "&pageSize=9").then((data) => {
+    this.queriesService.queryGet(this.apiPost + "&q=artificial%20intelligence&pageSize=9").then((data) => {
       this.data['posts'] = data['articles'];
     });
   }

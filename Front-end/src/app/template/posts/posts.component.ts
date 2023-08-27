@@ -29,7 +29,7 @@ export class PostsComponent implements OnInit {
   Post(n_page){
     document.getElementById('arriba').scrollIntoView({behavior: 'smooth'});
     this.npage  = n_page;
-    let ruta    = this.apiPost + "&page=" + this.npage +'&pageSize='+ this.cantidadReg;
+    let ruta    = this.apiPost + "&q=artificial%20intelligence&page=" + this.npage +'&pageSize='+ this.cantidadReg;
     
     this.queriesService.queryGet(ruta).then((data) => {
       this.data['posts']  = data['articles'];
